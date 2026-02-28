@@ -23,7 +23,7 @@ async function sendMessage() {
 
     try {
         // 3. Llamada a la Netlify Function de forma segura
-        const response = await fetch('/.netlify/functions/asesor', {
+        const response = await fetch('/api/asesor', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: message })
