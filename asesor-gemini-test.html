@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesor IA - Ultraseco (Prueba Gemini)</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="asesor.css">
+    <!-- Cargar la librería Google Generative AI desde CDN -->
+    <script src="https://unpkg.com/@google/generative-ai@0.2.0/dist/generative-ai.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <h1 class="logo">ultraseco</h1>
+        </div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">volver</a>
+            <a href="#" class="nav-link">contactenos</a>
+        </nav>
+    </header>
+    
+    <main class="main-content">
+        <section class="ai-chat-container">
+            <div class="ai-header">
+                <div class="ai-avatar">
+                    <div class="ai-icon">🤖</div>
+                </div>
+                <div class="ai-info">
+                    <h2>Asesor IA - Prueba Gemini</h2>
+                    <p class="ai-status">Prueba con Google Gemini 2.5 Flash</p>
+                </div>
+            </div>
+            
+            <div class="chat-box" id="chat-box">
+                <div class="message ai-message">
+                    <div class="message-content">
+                        <p>¡Hola! Soy tu asesor técnico experto de Ultraseco. ¿Qué superficie necesitas tratar y qué problema tienes?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Escribe tu consulta técnica..." autocomplete="off">
+                <button id="send-btn" onclick="sendMessage()">Enviar</button>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2024 Ultraseco. Asesor IA con Google Gemini - Prueba</p>
+    </footer>
+    
+    <script src="asesor-gemini-test.js"></script>
+</body>
+</html>

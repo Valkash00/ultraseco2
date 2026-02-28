@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesor IA - Ultraseco (Gemini)</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="asesor.css">
+    <!-- Cargar la librería Google Generative AI usando ESM browser -->
+    <script type="module">
+        import { GoogleGenerativeAI } from 'https://esm.run/@google/generative-ai';
+        
+        // Hacer la librería disponible globalmente para el script principal
+        window.GoogleGenerativeAI = GoogleGenerativeAI;
+        
+        // Verificación de carga de la librería
+        window.addEventListener('load', function() {
+            if (typeof GoogleGenerativeAI === 'undefined') {
+                console.error('Google Generative AI no se cargó correctamente');
+                mostrarErrorCargaLibreria();
+            } else {
+                console.log('Google Generative AI cargado exitosamente desde ESM.run');
+            }
+        });
+
+        function mostrarErrorCargaLibreria() {
+            const chatBox = document.getElementById('chat-box');
+            if (chatBox) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'message ai-message';
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'message-content';
+                const paragraph = document.createElement('p');
+                paragraph.innerHTML = '⚠️ <strong>Error:</strong> No se pudo cargar la librería de Google Gemini desde ESM.run. Por favor, verifica tu conexión a internet o contacta al administrador.';
+                contentDiv.appendChild(paragraph);
+                errorDiv.appendChild(contentDiv);
+                chatBox.appendChild(errorDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <h1 class="logo">ultraseco</h1>
+        </div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">volver</a>
+            <a href="#" class="nav-link">contactenos</a>
+        </nav>
+    </header>
+    
+    <main class="main-content">
+        <section class="ai-chat-container">
+            <div class="ai-header">
+                <div class="ai-avatar">
+                    <div class="ai-icon">🤖</div>
+                </div>
+                <div class="ai-info">
+                    <h2>Asesor IA - Gemini</h2>
+                    <p class="ai-status">Conectado a Google Gemini 2.5 Flash</p>
+                </div>
+            </div>
+            
+            <div class="chat-box" id="chat-box">
+                <div class="message ai-message">
+                    <div class="message-content">
+                        <p>¡Hola! Soy tu asesor técnico experto de Ultraseco. ¿Qué superficie necesitas tratar y qué problema tienes?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Escribe tu consulta técnica..." autocomplete="off">
+                <button id="send-btn" onclick="sendMessage()">Enviar</button>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2024 Ultraseco. Asesor IA con Google Gemini - Todos los derechos reservados.</p>
+    </footer>
+    
+    <!-- Script de verificación -->
+    <script src="verificar-chat.js"></script>
+    <script src="asesor-gemini.js"></script>
+</body>
+</html>

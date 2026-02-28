@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesor IA - Ultraseco</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="asesor.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <h1 class="logo">ultraseco</h1>
+        </div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">volver</a>
+            <a href="#" class="nav-link">contactenos</a>
+        </nav>
+    </header>
+    
+    <main class="main-content">
+        <section class="ai-chat-container">
+            <div class="ai-header">
+                <div class="ai-avatar">
+                    <div class="ai-icon">🤖</div>
+                </div>
+                <div class="ai-info">
+                    <h2>Asesor IA</h2>
+                    <p class="ai-status">En línea - Listo para ayudarte</p>
+                </div>
+            </div>
+            
+            <div class="chat-box" id="chat-box">
+                <div class="message ai-message">
+                    <div class="message-content">
+                        <p>¡Hola! Soy tu asesor IA. ¿En qué puedo ayudarte hoy?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta aquí..." autocomplete="off">
+                <button id="send-btn" onclick="sendMessage()">Enviar</button>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2024 Ultraseco. Asesor IA - Todos los derechos reservados.</p>
+    </footer>
+    
+    <script src="asesor.js"></script>
+</body>
+</html>
