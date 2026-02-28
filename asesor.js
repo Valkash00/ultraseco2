@@ -37,7 +37,7 @@ userInput.addEventListener('keypress', function(e) {
 // Enviar mensaje al hacer clic en el botón
 sendBtn.addEventListener('click', sendMessage);
 
-function sendMessage() {
+async function sendMessage() {
     const message = userInput.value.trim();
     
     if (message === '') return;
@@ -51,12 +51,31 @@ function sendMessage() {
     // Mostrar typing indicator
     showTypingIndicator();
     
-    // Responder después de un breve delay
-    setTimeout(() => {
+    try {
+        // Enviar mensaje a la función Netlify
+        const response = await fetch('/.netlify/functions/asesor', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: message })
+        });
+        
+        const data = await response.json();
+        
         removeTypingIndicator();
-        const response = generateResponse(message);
-        addMessage(response, 'ai');
-    }, 1500);
+        
+        if (data.success && data.response) {
+            addMessage(data.response, 'ai');
+        } else {
+            addMessage('Lo siento, no pude procesar tu solicitud en este momento. Por favor, intenta de nuevo.', 'ai');
+        }
+        
+    } catch (error) {
+        console.error('Error al comunicarse con el asesor IA:', error);
+        removeTypingIndicator();
+        addMessage('Lo siento, actualmente no puedo acceder al asesor técnico. Por favor, intenta de nuevo en unos momentos.', 'ai');
+    }
 }
 
 function addMessage(text, type) {
