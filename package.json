@@ -1,6 +1,13 @@
 {
   "name": "ultraseco-chat",
   "version": "1.0.0",
-  "description": "Sitio web de Ultraseco",
-  "dependencies": {}
+  "description": "Chat IA para Ultraseco con Google Gemini",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8080",
+    "install-deps": "npm install @google/generative-ai"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
+  }
 }
